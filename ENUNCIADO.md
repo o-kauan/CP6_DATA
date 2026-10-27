@@ -50,4 +50,4 @@ Solução automática recursiva usando a mesma função moverDisco().
 Como adaptar o histórico para que a inserção de um novo movimento passe de O(m) para O(1)?
 
 **Resposta:** 
-Deve-se adicionar um ponteiro adicional (ex.: `cauda` ou `fim`) na estrutura do histórico apontando diretamente para o último nó. Dessa forma, a inserção de um novo movimento é feita instantaneamente em O(1) via `cauda->proximo = novo_no`, sem a necessidade de percorrer toda a lista do início ao fim.
+Deve-se adicionar um ponteiro adicional na estrutura do histórico apontando diretamente para o último nó. Dessa forma, a inserção de um novo movimento é feita instantaneamente em O(1) via `cauda->proximo = novo_no`, sem a necessidade de percorrer toda a lista do início ao fim.
