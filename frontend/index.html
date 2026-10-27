@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hanoi Engine | Checkpoint DSA em C</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <span class="eyebrow">FIAP | DATA STRUCTURES AND ALGORITHMS EM C</span>
+      <h1>Hanoi Engine</h1>
+      <p>Frontend fornecido. O motor de processamento deve ser desenvolvido em C.</p>
+    </div>
+    <div class="status-wrap">
+      <span id="backendBadge" class="badge badge-offline">Bridge offline</span>
+      <button id="helpBtn" class="btn btn-ghost" type="button">Como usar</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-card">
+      <div class="hero-copy">
+        <h2>Torre de Hanoi com lista encadeada</h2>
+        <p>Cada torre deve ser uma pilha sobre <strong>lista simplesmente encadeada</strong>.
+        A interface envia comandos; a regra do jogo e o estado pertencem ao programa em C.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><span>Discos</span><strong id="diskCount">4</strong></div>
+        <div class="stat"><span>Movimentos</span><strong id="moveCount">0</strong></div>
+        <div class="stat"><span>Mínimo</span><strong id="minimumMoves">15</strong></div>
+      </div>
+    </section>
+
+    <section class="game-card">
+      <div class="game-toolbar">
+        <label>Quantidade de discos
+          <select id="diskSelect">
+            <option value="3">3</option><option value="4" selected>4</option>
+            <option value="5">5</option><option value="6">6</option>
+            <option value="7">7</option><option value="8">8</option>
+          </select>
+        </label>
+        <button id="initBtn" class="btn btn-primary">Inicializar</button>
+        <button id="resetBtn" class="btn btn-secondary">Reiniciar</button>
+        <button id="demoBtn" class="btn btn-ghost">Ver demonstração</button>
+      </div>
+
+      <div class="board">
+        <article class="tower-card"><div class="tower-title">Torre A</div>
+          <div id="towerA" class="tower"><div class="peg"></div><div class="base"></div><div class="disk-zone"></div></div>
+        </article>
+        <article class="tower-card"><div class="tower-title">Torre B</div>
+          <div id="towerB" class="tower"><div class="peg"></div><div class="base"></div><div class="disk-zone"></div></div>
+        </article>
+        <article class="tower-card"><div class="tower-title">Torre C</div>
+          <div id="towerC" class="tower"><div class="peg"></div><div class="base"></div><div class="disk-zone"></div></div>
+        </article>
+      </div>
+
+      <div class="move-panel">
+        <div class="move-controls">
+          <label>Origem<select id="originSelect"><option>A</option><option>B</option><option>C</option></select></label>
+          <span class="arrow">→</span>
+          <label>Destino<select id="destinationSelect"><option>C</option><option>B</option><option>A</option></select></label>
+          <button id="moveBtn" class="btn btn-primary btn-large">Mover disco</button>
+        </div>
+        <div id="message" class="message message-info">Inicialize o jogo para começar.</div>
+      </div>
+    </section>
+
+    <section class="lower-grid">
+      <article class="panel">
+        <div class="panel-head">
+          <div><span class="eyebrow">LISTA ENCADEADA</span><h3>Histórico de movimentos</h3></div>
+          <button id="historyBtn" class="btn btn-ghost btn-small">Atualizar</button>
+        </div>
+        <ol id="historyList" class="history-list"><li class="empty">Nenhum movimento registrado.</li></ol>
+      </article>
+      <article class="panel">
+        <span class="eyebrow">PROTOCOLO</span><h3>Última comunicação com o C</h3>
+        <div class="terminal">
+          <div><span>→</span> <code id="lastCommand">-</code></div>
+          <div><span>←</span> <code id="lastResponse">-</code></div>
+        </div>
+        <p class="hint">O frontend envia comandos como <code>MOVE A C</code>. O bridge encaminha a linha ao executável C.</p>
+      </article>
+    </section>
+  </main>
+
+  <dialog id="helpDialog">
+    <div class="dialog-content">
+      <div class="dialog-head"><h2>Fluxo do Checkpoint</h2><button id="closeHelpBtn" class="icon-btn">×</button></div>
+      <ol class="steps">
+        <li>Complete as funções marcadas como TODO em <code>src/hanoi.c</code>.</li>
+        <li>Compile com <code>build.bat</code> ou <code>make</code>.</li>
+        <li>Execute <code>python bridge/bridge.py</code>.</li>
+        <li>Acesse <code>http://localhost:8080</code>.</li>
+      </ol>
+      <div class="protocol-box">
+        <strong>Comandos</strong><code>INIT 4</code><code>MOVE A C</code><code>STATE</code><code>HISTORY</code><code>RESET 4</code>
+      </div>
+    </div>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
