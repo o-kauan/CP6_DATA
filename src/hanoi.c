@@ -1,8 +1,23 @@
+/*
+ * ============================================================
+ *  HANOI ENGINE - Checkpoint Final
+ *  Data Structures and Algorithms em C | FIAP
+ * ============================================================
+ *  Integrantes:
+ *    - Guilherme Figueira Velloso ................ RM 568827
+ *    - José Augusto Ribeiro Freire Manfrinato .... RM 571151
+ *    - Lais da Silva Dias ........................ RM 569943
+ *    - João Augusto Poloniato Telles ............. RM 571443
+ *    - Thiago Soalheiro Diamantino ............... RM 569316
+ *    - Kauan Damasceno de Lima ................... RM 573727
+ *
+ *  Repositório: https://github.com/o-kauan/CP6_DATA
+ * ============================================================
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "hanoi.h"
-
-/* Complete somente as funcoes abaixo. Nao use vetor para representar as torres. */
 
 int push(No **topo, int disco) {
     No *novo = (No*)malloc(sizeof(No));
@@ -102,8 +117,6 @@ int moverDisco(Torre *origem, Torre *destino, Movimento **historico) {
     return 1;
 }
 
-/* PARTE 3 - ULTIMAS 4 FUNCOES */
-
 int verificarVitoria(Torre *destino, int quantidadeDiscos) {
     if (destino == NULL || destino->topo == NULL) return 0;
 
@@ -111,7 +124,6 @@ int verificarVitoria(Torre *destino, int quantidadeDiscos) {
     int discoEsperado = 1;
     int contador = 0;
 
-    // Percorre a torre verificando se os discos estão em ordem (1, 2, 3...)
     while (atual != NULL) {
         if (atual->disco != discoEsperado) {
             return 0;
@@ -121,7 +133,6 @@ int verificarVitoria(Torre *destino, int quantidadeDiscos) {
         atual = atual->proximo;
     }
 
-    // Retorna 1 (vitoria) se a quantidade de discos na torre for exatamente o total do jogo
     return (contador == quantidadeDiscos);
 }
 

@@ -1,3 +1,18 @@
+## Integrantes
+
+| Nome completo | RM |
+| :--- | :---: |
+| Guilherme Figueira Velloso | 568827 |
+| José Augusto Ribeiro Freire Manfrinato | 571151 |
+| Lais da Silva Dias | 569943 |
+| João Augusto Poloniato Telles | 571443 |
+| Thiago Soalheiro Diamantino | 569316 |
+| Kauan Damasceno de Lima | 573727 |
+
+**Repositório:** https://github.com/o-kauan/CP6_DATA
+
+---
+
 # Checkpoint Final - Hanoi Engine em C
 
 ## Pronto para o aluno
